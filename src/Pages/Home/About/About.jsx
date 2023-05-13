@@ -3,13 +3,13 @@ import parts from "../../../assets/images/about_us/parts.jpg";
 
 const About = () => {
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen ">
       <div className="hero-content flex-col-reverse  lg:flex-row">
         <div className="lg:w-1/2 relative">
           <img src={person} className="w-3/4 rounded-lg shadow-2xl" />
           <img
             src={parts}
-            className="w-1/2 absolute right-5 top-3/4 rounded-lg border-white border-8 shadow-2xl"
+            className="w-1/2 absolute right-5 top-3/4 rounded-lg border-white border-8 "
           />
         </div>
         <div className="lg:w-1/2 space-y-5">
@@ -20,14 +20,12 @@ const About = () => {
           <p className="py-6">
             There are Many Variations os passages of lorem ipsum available, But
             the Majority have suffered alteration in some from, By injected
-            Humour, or randomized words which don't look even slighty
-            believable.
+            Humour, or randomized words which dont look even slighty believable.
           </p>
           <p className="py-6">
             There are Many Variations os passages of lorem ipsum available, But
             the Majority have suffered alteration in some from, By injected
-            Humour, or randomized words which don't look even slighty
-            believable.
+            Humour, or randomized words which dont look even slighty believable.
           </p>
           <button className="btn btn-primary">Get More Info</button>
         </div>
