@@ -53,6 +53,7 @@ const BookService = () => {
               type="text"
               name="name"
               placeholder="Name"
+              defaultValue={user?.displayName}
               className="input input-bordered"
             />
           </div>
@@ -60,12 +61,7 @@ const BookService = () => {
             <label className="label">
               <span className="label-text">Date</span>
             </label>
-            <input
-              type="date"
-              name="date"
-              defaultValue={user?.displayName}
-              className="input input-bordered"
-            />
+            <input type="date" name="date" className="input input-bordered" />
           </div>
           <div className="form-control">
             <label className="label">

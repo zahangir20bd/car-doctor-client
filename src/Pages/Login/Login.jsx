@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/images/login/login.svg";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -12,15 +16,37 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password)
 
     signIn(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
+        // const loggedUserEmail = {
+        //   email: user.email,
+        // };
+        // console.log(loggedUserEmail);
+
+        // fetch("http://localhost:5000/jwt", {
+        //   method: "POST",
+        //   headers: {
+        //     "content-type": "application/json",
+        //   },
+        //   body: JSON.stringify(loggedUserEmail),
+        // })
+        //   .then((res) => res.json())
+        //   .then((data) => {
+        //     // console.log("jwt response", data);
+        //     localStorage.setItem("car-access-token", data.token);
+        //     navigate(from, { replace: true });
+        //   });
       })
       .catch((error) => console.log(error));
   };
+
+  // Google SignIn
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
@@ -73,6 +99,7 @@ const Login = () => {
                 Sign Up
               </Link>
             </p>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
